@@ -51,25 +51,23 @@ export default async function Home() {
   return (
     <main>
 
-    <section className="section site-portfolio">
       <div className="container">
-        <div id="portfolio-grid" className="row no-gutter" data-aos-delay="200">
+        <div className="row no-gutter">
           
           {arrData.map((item) => (
-            <div className="item web col-sm-6 col-md-4 col-lg-4 mb-4" key={item.url}>
+            <div className="item web col-sm-6 col-md-4 col-lg-4 col-6 mb-4" key={item.url}>
             <a href={`/album/${encodeURIComponent(item.artistSlug)}/${encodeURIComponent(item.albumSlug)}`} className="item-wrap fancybox">
               <div className="work-info">
                 <h3>{item.name}</h3>
                 <span>{item.artist}</span>
               </div>
-              <Image src={item.imageUrls[0]} alt="" className='img-fluid' width={1000} height={1000} />
+              <Image src={item.imageUrls[0]} alt="" className='img-fluid' width={800} height={800} priority={true} />
             </a>
           </div>
           ))}
           
         </div>
       </div>
-    </section>
  
     </main>
     )
