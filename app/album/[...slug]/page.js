@@ -5,13 +5,14 @@ export default async function Album({ params }) {
     const albumUrl = 'https://' + [params.slug[0]][0] + '.bandcamp.com/album/' + [params.slug[1]][0];
     const albumInfo = await new Promise((resolve, reject) => {
         bandcamp.getAlbumInfo(albumUrl, function (error, albumInfo) {
-          if (error) {
-            reject(error);
-          } else {
-            resolve(albumInfo);
-          }
+            if (error) {
+                reject(error);
+            } else {
+                resolve(albumInfo);
+            }
         });
-      });
+    });
+    
     return (
         <main>
             <div className="container my-5">
@@ -31,8 +32,13 @@ export default async function Album({ params }) {
                             <div className="card mb-2" key={index}>
                                 <div className="card-body">
                                     <p className="card-title">{index + 1}. {track.title}</p>
+                                    {/* Audio Player */}
+                                    <audio controls style={{ width: '100%' }}>
+                                        <source src={track.file["mp3-128"]} type="audio/mpeg" />
+                                        Your browser does not support the audio element.
+                                    </audio>
                                 </div>
-                              </div>
+                            </div>
                         ))}
                     </div>
                 </div>

@@ -3,7 +3,7 @@ const bandcamp = require('bandcamp-scraper')
 
 async function getData() {
   const AllAlbums = [];
-  const artistUrl = 'https://dirtyass.bandcamp.com/';
+  const artistUrl = 'https://toast2014.bandcamp.com/';
   const arr = [];
 
   return new Promise((resolve, reject) => {
