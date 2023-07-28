@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
         <link href="/assets/css/style.css" rel="stylesheet"/>
     </head>
       <body className={inter.className}>
-    <div className="container d-flex flex-column min-vh-100">
+    <div className="container">
       <nav className="navbar mt-3 sticky-top bg-white">
         <div className="container-fluid">
           <a href="/" className="navbar-brand"><h3>WINTERWRLD // </h3></a>
@@ -31,13 +31,13 @@ export default function RootLayout({ children }) {
       </nav>
 
         {children}
-        <footer className="footer mt-auto" role="contentinfo">
+        <footer className="page-footer" role="contentinfo" style={{marginTop: "300px"}}>
     <div className="container">
       <div className="row">
-        <div className="col-sm-6">
+        <div className="col-sm-12 text-center">
           <p className="mb-1">&copy; Copyright Winterwrld. All Rights Reserved</p>
         </div>
-        <div className="col-sm-6 social text-md-end">
+        <div className="col-sm-12 text-center social text-md-center">
           <a href="https://www.twitter.com/winterwrld" target="_blank"><span className="bi bi-twitter"></span></a>
         </div>
       </div>
