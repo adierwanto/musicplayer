@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
       </nav>
 
         {children}
-        <footer className="page-footer" role="contentinfo" style={{marginTop: "300px"}}>
+        <footer className="page-footer" role="contentinfo" style={{marginTop: "200px"}}>
     <div className="container">
       <div className="row">
         <div className="col-sm-12 text-center">

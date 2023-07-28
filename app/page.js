@@ -3,8 +3,7 @@ const bandcamp = require('bandcamp-scraper')
 
 async function getData() {
   const AllAlbums = [];
-  const artistUrl = 'https://toast2014.bandcamp.com/';
-  const arr = [];
+  const artistUrl = 'https://dirtyass.bandcamp.com/';
 
   return new Promise((resolve, reject) => {
     bandcamp.getAlbumUrls(artistUrl, function (error, albumUrls) {
@@ -38,20 +37,24 @@ export default async function Home() {
   const data = await getData()
   const arrData = [];
   data.forEach(x => {
-    const obj = {
-      url: x.url,
-      name: x.name,
-      artist: x.artist,
-      imageUrls: x.imageUrls,
-      artistSlug: x.url.split(".bandcamp")[0].replace("https://", ""),
-      albumSlug: x.url.split("/").pop()
+    console.log(x);
+    if (x.format === 'Digital Album') {
+      const obj = {
+        url: x.url,
+        name: x.name,
+        artist: x.artist,
+        imageUrls: x.imageUrls,
+        artistSlug: x.url.split(".bandcamp")[0].replace("https://", ""),
+        albumSlug: x.url.split("/").pop()
+      }
+      arrData.push(obj);
     }
-    arrData.push(obj);
+    
   });
   return (
     <main>
-
-      <div className="container">
+      
+      <div className="container mt-5">
         <div className="row no-gutter">
           
           {arrData.map((item) => (
